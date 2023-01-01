@@ -86,7 +86,9 @@ function switchFn(colomId, player) {
     
     if (checkGameEnd) {
         playGroundEl.innerHTML = `<h1 class='YouWonMatch'>Tie...!!!</h1><button onclick="location.reload()" class="btn">Play Game</button>`
-    WonAudioFile.play();
+        
+        
+        setTimeout(PlayWon, 2000);
     }
 }
 
@@ -98,10 +100,6 @@ function cons(colomId,player) {
 
     if (winner === '') {
         setTimeout(computerChoice, 1200)
-    }
-    
-    if (winner === 'Player1') {
-        console.log('Player 1 win')
     }
 }
 
@@ -135,5 +133,9 @@ function conditionChecking(arrOfarr) {
 function AnounceWinner(a) {
     winner = a;
     playGroundEl.innerHTML = `<h1 class='YouWonMatch'>${a}<br><br> Won the match...!!!</h1><button onclick="location.reload()" class="btn">Play Game</button>`
-    WonAudioFile.play();
+    setTimeout(PlayWon, 1000);
+}
+
+function PlayWon() {
+    WonAudioFile.play()
 }
