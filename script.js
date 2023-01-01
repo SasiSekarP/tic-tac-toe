@@ -78,6 +78,16 @@ function switchFn(colomId, player) {
     indexArr.splice(address, 1);
 
     arrOfarr = [[a, b, c], [d, e, f], [g, h, i], [a, d, f], [b, e, h], [c, f, i], [a, e, i], [c, e, g]];
+
+    let flatArr = arrOfarr.flat()
+    let checkGameEnd = flatArr.every(e => {
+        return e != undefined;
+    })
+    
+    if (checkGameEnd) {
+        playGroundEl.innerHTML = `<h1 class='YouWonMatch'>Tie...!!!</h1><button onclick="location.reload()" class="btn">Play Game</button>`
+    WonAudioFile.play();
+    }
 }
 
 function cons(colomId,player) {
